@@ -1,0 +1,25 @@
+{
+	"name": "triggerFormula",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "Pipeline-Formula1",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Day",
+				"interval": 1,
+				"startTime": "2025-05-04T19:46:00",
+				"endTime": "2025-05-04T22:42:00",
+				"timeZone": "E. South America Standard Time"
+			}
+		}
+	}
+}
