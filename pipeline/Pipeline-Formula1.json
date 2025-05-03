@@ -55,7 +55,7 @@
 					{
 						"activity": "Silver_Race_Results",
 						"dependencyConditions": [
-							"Skipped"
+							"Succeeded"
 						]
 					}
 				],
