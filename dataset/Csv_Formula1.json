@@ -1,0 +1,25 @@
+{
+	"name": "Csv_Formula1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "HttpServer",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Dados_Externos"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation",
+				"relativeUrl": "Driver_Details.csv"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
