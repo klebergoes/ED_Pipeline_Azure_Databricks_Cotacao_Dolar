@@ -18,7 +18,7 @@
 			"value": "0424-201914-s3kvpqj3"
 		},
 		"HttpServer_properties_typeProperties_url": {
-			"value": "https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarPeriodo(dataInicial=@dataInicial,dataFinalCotacao=@dataFinalCotacao)?%40dataInicial='01-01-2020'&%40dataFinalCotacao='04-30-2025'&%24format=text%2Fcsv"
+			"value": "https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarPeriodo(dataInicial=@dataInicial,dataFinalCotacao=@dataFinalCotacao)?%40dataInicial='01-01-2020'&%40dataFinalCotacao='04-30-2030'&%24format=text%2Fcsv"
 		},
 		"containerUri": {
 			"value": ""
