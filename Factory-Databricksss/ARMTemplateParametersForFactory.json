@@ -8,8 +8,14 @@
 		"AzureDatabricksConexao_accessToken": {
 			"value": ""
 		},
+		"AzureBlobStorage_connectionString": {
+			"value": ""
+		},
 		"AzureDatabricksConexao_properties_typeProperties_existingClusterId": {
 			"value": "0424-201914-s3kvpqj3"
+		},
+		"HttpServer_properties_typeProperties_url": {
+			"value": "https://www.kaggle.com/datasets/muhammadehsan02/formula-1-world-championship-history-1950-2024"
 		}
 	}
 }

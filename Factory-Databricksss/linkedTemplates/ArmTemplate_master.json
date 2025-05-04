@@ -11,9 +11,17 @@
 			"type": "secureString",
 			"metadata": "Cadeia de caracteres segura para 'accessToken' de 'AzureDatabricksConexao'"
 		},
+		"AzureBlobStorage_connectionString": {
+			"type": "secureString",
+			"metadata": "Cadeia de caracteres segura para 'connectionString' de 'AzureBlobStorage'"
+		},
 		"AzureDatabricksConexao_properties_typeProperties_existingClusterId": {
 			"type": "string",
 			"defaultValue": "0424-201914-s3kvpqj3"
+		},
+		"HttpServer_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://www.kaggle.com/datasets/muhammadehsan02/formula-1-world-championship-history-1950-2024"
 		},
 		"containerUri": {
 			"type": "string",
@@ -45,8 +53,14 @@
 					"AzureDatabricksConexao_accessToken": {
 						"value": "[parameters('AzureDatabricksConexao_accessToken')]"
 					},
+					"AzureBlobStorage_connectionString": {
+						"value": "[parameters('AzureBlobStorage_connectionString')]"
+					},
 					"AzureDatabricksConexao_properties_typeProperties_existingClusterId": {
 						"value": "[parameters('AzureDatabricksConexao_properties_typeProperties_existingClusterId')]"
+					},
+					"HttpServer_properties_typeProperties_url": {
+						"value": "[parameters('HttpServer_properties_typeProperties_url')]"
 					}
 				}
 			},

@@ -11,9 +11,17 @@
 			"type": "secureString",
 			"metadata": "Cadeia de caracteres segura para 'accessToken' de 'AzureDatabricksConexao'"
 		},
+		"AzureBlobStorage_connectionString": {
+			"type": "secureString",
+			"metadata": "Cadeia de caracteres segura para 'connectionString' de 'AzureBlobStorage'"
+		},
 		"AzureDatabricksConexao_properties_typeProperties_existingClusterId": {
 			"type": "string",
 			"defaultValue": "0424-201914-s3kvpqj3"
+		},
+		"HttpServer_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://www.kaggle.com/datasets/muhammadehsan02/formula-1-world-championship-history-1950-2024"
 		}
 	},
 	"variables": {
@@ -150,14 +158,41 @@
 						"interval": 1,
 						"startTime": "2025-05-03T19:51:00",
 						"endTime": "2025-05-04T22:42:00",
-						"timeZone": "E. South America Standard Time",
-						"schedule": {}
+						"timeZone": "E. South America Standard Time"
 					}
 				}
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/Pipeline-Formula1')]"
 			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/HttpServer')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "HttpServer",
+				"typeProperties": {
+					"url": "[parameters('HttpServer_properties_typeProperties_url')]",
+					"enableServerCertificateValidation": true,
+					"authenticationType": "Anonymous"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/AzureBlobStorage')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobStorage",
+				"typeProperties": {
+					"connectionString": "[parameters('AzureBlobStorage_connectionString')]"
+				}
+			},
+			"dependsOn": []
 		}
 	]
 }
