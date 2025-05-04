@@ -7,13 +7,13 @@
 			"metadata": "Nome do Data Factory",
 			"defaultValue": "Factory-Databricksss"
 		},
-		"AzureDatabricksConexao_accessToken": {
-			"type": "secureString",
-			"metadata": "Cadeia de caracteres segura para 'accessToken' de 'AzureDatabricksConexao'"
-		},
 		"AzureBlobStorage_connectionString": {
 			"type": "secureString",
 			"metadata": "Cadeia de caracteres segura para 'connectionString' de 'AzureBlobStorage'"
+		},
+		"AzureDatabricksConexao_accessToken": {
+			"type": "secureString",
+			"metadata": "Cadeia de caracteres segura para 'accessToken' de 'AzureDatabricksConexao'"
 		},
 		"AzureDatabricksConexao_properties_typeProperties_existingClusterId": {
 			"type": "string",
@@ -50,11 +50,11 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
-					"AzureDatabricksConexao_accessToken": {
-						"value": "[parameters('AzureDatabricksConexao_accessToken')]"
-					},
 					"AzureBlobStorage_connectionString": {
 						"value": "[parameters('AzureBlobStorage_connectionString')]"
+					},
+					"AzureDatabricksConexao_accessToken": {
+						"value": "[parameters('AzureDatabricksConexao_accessToken')]"
 					},
 					"AzureDatabricksConexao_properties_typeProperties_existingClusterId": {
 						"value": "[parameters('AzureDatabricksConexao_properties_typeProperties_existingClusterId')]"
