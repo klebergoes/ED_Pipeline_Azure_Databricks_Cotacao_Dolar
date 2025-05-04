@@ -187,87 +187,7 @@
 			"properties": {
 				"activities": [
 					{
-						"name": "Silver_Driver_Details",
-						"type": "DatabricksNotebook",
-						"dependsOn": [
-							{
-								"activity": "Copia_Driver_Details",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"policy": {
-							"timeout": "0.12:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"notebookPath": "/Users/kleber-goes@hotmail.com/Pipeline-Formula1-Azure_Databricks/Arquitetura_Medalhao/1. Camada Silver/Driver_Details"
-						},
-						"linkedServiceName": {
-							"referenceName": "AzureDatabricksConexao",
-							"type": "LinkedServiceReference"
-						}
-					},
-					{
-						"name": "Silver_Race_Results",
-						"type": "DatabricksNotebook",
-						"dependsOn": [],
-						"policy": {
-							"timeout": "0.12:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"notebookPath": "/Users/kleber-goes@hotmail.com/Pipeline-Formula1-Azure_Databricks/Arquitetura_Medalhao/1. Camada Silver/Race_Results"
-						},
-						"linkedServiceName": {
-							"referenceName": "AzureDatabricksConexao",
-							"type": "LinkedServiceReference"
-						}
-					},
-					{
-						"name": "Gold_Indice_Vitorias_Por_Piloto",
-						"type": "DatabricksNotebook",
-						"dependsOn": [
-							{
-								"activity": "Silver_Driver_Details",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							},
-							{
-								"activity": "Silver_Race_Results",
-								"dependencyConditions": [
-									"Succeeded"
-								]
-							}
-						],
-						"policy": {
-							"timeout": "0.12:00:00",
-							"retry": 0,
-							"retryIntervalInSeconds": 30,
-							"secureOutput": false,
-							"secureInput": false
-						},
-						"userProperties": [],
-						"typeProperties": {
-							"notebookPath": "/Users/kleber-goes@hotmail.com/Pipeline-Formula1-Azure_Databricks/Arquitetura_Medalhao/2. Camada Gold/Índice de Vitórias por Piloto"
-						},
-						"linkedServiceName": {
-							"referenceName": "AzureDatabricksConexao",
-							"type": "LinkedServiceReference"
-						}
-					},
-					{
-						"name": "Copia_Driver_Details",
+						"name": "Copia_Origem",
 						"type": "Copy",
 						"dependsOn": [],
 						"policy": {
@@ -335,7 +255,6 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureDatabricksConexao')]",
 				"[concat(variables('factoryId'), '/datasets/Csv_Formula1')]",
 				"[concat(variables('factoryId'), '/datasets/Csv_Datalake')]"
 			]
