@@ -1,0 +1,12 @@
+{
+	"name": "HttpServer",
+	"properties": {
+		"annotations": [],
+		"type": "HttpServer",
+		"typeProperties": {
+			"url": "https://www.kaggle.com/datasets/muhammadehsan02/formula-1-world-championship-history-1950-2024",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Anonymous"
+		}
+	}
+}
