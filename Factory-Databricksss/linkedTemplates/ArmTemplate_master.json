@@ -7,13 +7,17 @@
 			"metadata": "Nome do Data Factory",
 			"defaultValue": "Factory-Databricksss"
 		},
-		"AzureBlobStorage_connectionString": {
+		"AzureDataLakeStorage_accountKey": {
 			"type": "secureString",
-			"metadata": "Cadeia de caracteres segura para 'connectionString' de 'AzureBlobStorage'"
+			"metadata": "Cadeia de caracteres segura para 'accountKey' de 'AzureDataLakeStorage'"
 		},
 		"AzureDatabricksConexao_accessToken": {
 			"type": "secureString",
 			"metadata": "Cadeia de caracteres segura para 'accessToken' de 'AzureDatabricksConexao'"
+		},
+		"AzureDataLakeStorage_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://datalakeform1.dfs.core.windows.net/"
 		},
 		"AzureDatabricksConexao_properties_typeProperties_existingClusterId": {
 			"type": "string",
@@ -50,11 +54,14 @@
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
 					},
-					"AzureBlobStorage_connectionString": {
-						"value": "[parameters('AzureBlobStorage_connectionString')]"
+					"AzureDataLakeStorage_accountKey": {
+						"value": "[parameters('AzureDataLakeStorage_accountKey')]"
 					},
 					"AzureDatabricksConexao_accessToken": {
 						"value": "[parameters('AzureDatabricksConexao_accessToken')]"
+					},
+					"AzureDataLakeStorage_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage_properties_typeProperties_url')]"
 					},
 					"AzureDatabricksConexao_properties_typeProperties_existingClusterId": {
 						"value": "[parameters('AzureDatabricksConexao_properties_typeProperties_existingClusterId')]"

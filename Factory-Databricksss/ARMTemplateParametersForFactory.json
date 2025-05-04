@@ -5,11 +5,14 @@
 		"factoryName": {
 			"value": "Factory-Databricksss"
 		},
-		"AzureBlobStorage_connectionString": {
+		"AzureDataLakeStorage_accountKey": {
 			"value": ""
 		},
 		"AzureDatabricksConexao_accessToken": {
 			"value": ""
+		},
+		"AzureDataLakeStorage_properties_typeProperties_url": {
+			"value": "https://datalakeform1.dfs.core.windows.net/"
 		},
 		"AzureDatabricksConexao_properties_typeProperties_existingClusterId": {
 			"value": "0424-201914-s3kvpqj3"
