@@ -4,7 +4,7 @@
 		"annotations": [],
 		"type": "HttpServer",
 		"typeProperties": {
-			"url": "https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarPeriodo(dataInicial=@dataInicial,dataFinalCotacao=@dataFinalCotacao)?%40dataInicial='01-01-2020'&%40dataFinalCotacao='12-31-2024'&%24format=text%2Fcsv",
+			"url": "https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarPeriodo(dataInicial=@dataInicial,dataFinalCotacao=@dataFinalCotacao)?%40dataInicial='01-01-2020'&%40dataFinalCotacao='04-30-2025'&%24format=text%2Fcsv",
 			"enableServerCertificateValidation": true,
 			"authenticationType": "Anonymous"
 		}
