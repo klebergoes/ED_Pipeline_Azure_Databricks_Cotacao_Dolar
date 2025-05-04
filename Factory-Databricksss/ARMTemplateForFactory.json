@@ -25,7 +25,7 @@
 		},
 		"HttpServer_properties_typeProperties_url": {
 			"type": "string",
-			"defaultValue": "https://www.kaggle.com/datasets/muhammadehsan02/formula-1-world-championship-history-1950-2024"
+			"defaultValue": "https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarPeriodo(dataInicial=@dataInicial,dataFinalCotacao=@dataFinalCotacao)?%40dataInicial='01-01-2020'&%40dataFinalCotacao='12-31-2024'&%24format=text%2Fcsv"
 		}
 	},
 	"variables": {
@@ -41,7 +41,14 @@
 					{
 						"name": "Silver_Driver_Details",
 						"type": "DatabricksNotebook",
-						"dependsOn": [],
+						"dependsOn": [
+							{
+								"activity": "Copia_Driver_Details",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
 						"policy": {
 							"timeout": "0.12:00:00",
 							"retry": 0,
