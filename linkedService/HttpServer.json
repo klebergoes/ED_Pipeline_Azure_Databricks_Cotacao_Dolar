@@ -4,7 +4,7 @@
 		"annotations": [],
 		"type": "HttpServer",
 		"typeProperties": {
-			"url": "https://www.kaggle.com/datasets/muhammadehsan02/formula-1-world-championship-history-1950-2024",
+			"url": "https://apidatalake.tesouro.gov.br/ords/custos/tt/pensionistas",
 			"enableServerCertificateValidation": true,
 			"authenticationType": "Anonymous"
 		}
