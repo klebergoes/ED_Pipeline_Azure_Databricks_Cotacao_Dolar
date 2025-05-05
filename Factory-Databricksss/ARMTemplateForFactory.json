@@ -62,14 +62,12 @@
 								}
 							},
 							"sink": {
-								"type": "DelimitedTextSink",
+								"type": "ParquetSink",
 								"storeSettings": {
 									"type": "AzureBlobFSWriteSettings"
 								},
 								"formatSettings": {
-									"type": "DelimitedTextWriteSettings",
-									"quoteAllText": true,
-									"fileExtension": ".txt"
+									"type": "ParquetWriteSettings"
 								}
 							},
 							"enableStaging": false,
@@ -91,7 +89,7 @@
 						],
 						"outputs": [
 							{
-								"referenceName": "Csv_Datalake",
+								"referenceName": "Parquet_Api",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
@@ -108,7 +106,7 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/Csv_Api')]",
-				"[concat(variables('factoryId'), '/datasets/Csv_Datalake')]"
+				"[concat(variables('factoryId'), '/datasets/Parquet_Api')]"
 			]
 		},
 		{
@@ -204,6 +202,35 @@
 						"type": "String"
 					}
 				]
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStorage')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Parquet_Api')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "AzureDataLakeStorage",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Dados_Externos"
+				},
+				"annotations": [],
+				"type": "Parquet",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileName": "Cotacao_Dolar",
+						"folderPath": "Bronze",
+						"fileSystem": "cotacao-dolar"
+					},
+					"compressionCodec": "gzip"
+				},
+				"schema": []
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStorage')]"
