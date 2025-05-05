@@ -83,7 +83,36 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/Csv_Datalake')]",
+			"name": "[concat(parameters('factoryName'), '/Csv_Api')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "HttpServer",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "Dados_Externos"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "HttpServerLocation"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/HttpServer')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Parquet_Datalake')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
 			"properties": {
@@ -93,75 +122,6 @@
 				},
 				"folder": {
 					"name": "Dados_Internos"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "AzureBlobFSLocation",
-						"fileName": "Cotacao_Dolar",
-						"folderPath": "Bronze",
-						"fileSystem": "cotacao-dolar"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": [
-					{
-						"name": "driverId",
-						"type": "String"
-					},
-					{
-						"name": "driverRef",
-						"type": "String"
-					},
-					{
-						"name": "number",
-						"type": "String"
-					},
-					{
-						"name": "code",
-						"type": "String"
-					},
-					{
-						"name": "forename",
-						"type": "String"
-					},
-					{
-						"name": "surname",
-						"type": "String"
-					},
-					{
-						"name": "dob",
-						"type": "String"
-					},
-					{
-						"name": "nationality",
-						"type": "String"
-					},
-					{
-						"name": "url",
-						"type": "String"
-					}
-				]
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/AzureDataLakeStorage')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/Parquet_Api')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "AzureDataLakeStorage",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "Dados_Externos"
 				},
 				"annotations": [],
 				"type": "Parquet",
@@ -202,9 +162,8 @@
 							"source": {
 								"type": "DelimitedTextSource",
 								"storeSettings": {
-									"type": "AzureBlobFSReadSettings",
-									"recursive": true,
-									"enablePartitionDiscovery": false
+									"type": "HttpReadSettings",
+									"requestMethod": "GET"
 								},
 								"formatSettings": {
 									"type": "DelimitedTextReadSettings"
@@ -231,14 +190,14 @@
 						},
 						"inputs": [
 							{
-								"referenceName": "Csv_Datalake",
+								"referenceName": "Csv_Api",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
 						],
 						"outputs": [
 							{
-								"referenceName": "Parquet_Api",
+								"referenceName": "Parquet_Datalake",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
@@ -308,8 +267,8 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/Parquet_Api')]",
-				"[concat(variables('factoryId'), '/datasets/Csv_Datalake')]",
+				"[concat(variables('factoryId'), '/datasets/Csv_Api')]",
+				"[concat(variables('factoryId'), '/datasets/Parquet_Datalake')]",
 				"[concat(variables('factoryId'), '/linkedServices/AzureDatabricksConexao')]"
 			]
 		},
