@@ -1,5 +1,5 @@
 {
-	"name": "Csv_Formula1",
+	"name": "Csv_Api",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "HttpServer",

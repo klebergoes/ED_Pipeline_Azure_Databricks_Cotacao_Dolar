@@ -1,9 +1,9 @@
 {
-	"name": "Pipeline-Formula1",
+	"name": "Pipeline-Cotacao_Dolar",
 	"properties": {
 		"activities": [
 			{
-				"name": "Copia_Origem",
+				"name": "Ingestao_Api",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -48,7 +48,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "Csv_Formula1",
+						"referenceName": "Csv_Api",
 						"type": "DatasetReference"
 					}
 				],
@@ -61,7 +61,7 @@
 			}
 		],
 		"folder": {
-			"name": "Pipeline_Formula1"
+			"name": "Pipeline_Cotacao_Dolar"
 		},
 		"annotations": []
 	}
