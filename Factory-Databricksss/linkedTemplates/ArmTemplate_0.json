@@ -293,7 +293,7 @@
 					"recurrence": {
 						"frequency": "Day",
 						"interval": 1,
-						"startTime": "2025-05-03T18:20:00",
+						"startTime": "2025-05-03T18:30:00",
 						"endTime": "2025-05-06T22:42:00",
 						"timeZone": "E. South America Standard Time"
 					}
