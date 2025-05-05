@@ -1,8 +1,8 @@
 {
-	"name": "triggerFormula",
+	"name": "trigger_cotacao_dolar",
 	"properties": {
 		"annotations": [],
-		"runtimeState": "Stopped",
+		"runtimeState": "Started",
 		"pipelines": [
 			{
 				"pipelineReference": {
@@ -16,8 +16,8 @@
 			"recurrence": {
 				"frequency": "Day",
 				"interval": 1,
-				"startTime": "2025-05-03T19:51:00",
-				"endTime": "2025-05-04T22:42:00",
+				"startTime": "2025-05-03T18:20:00",
+				"endTime": "2025-05-06T22:42:00",
 				"timeZone": "E. South America Standard Time"
 			}
 		}
