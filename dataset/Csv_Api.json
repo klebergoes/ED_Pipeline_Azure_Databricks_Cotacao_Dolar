@@ -1,5 +1,5 @@
 {
-	"name": "Parquet_Api",
+	"name": "Csv_Api",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "HttpServer",
@@ -9,12 +9,15 @@
 			"name": "Dados_Externos"
 		},
 		"annotations": [],
-		"type": "Parquet",
+		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "HttpServerLocation"
 			},
-			"compressionCodec": "none"
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
 		},
 		"schema": []
 	}

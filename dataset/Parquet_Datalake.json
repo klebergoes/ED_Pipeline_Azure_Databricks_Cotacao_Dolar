@@ -1,0 +1,24 @@
+{
+	"name": "Parquet_Datalake",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Dados_Internos"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "Cotacao_Dolar",
+				"folderPath": "Bronze",
+				"fileSystem": "cotacao-dolar"
+			},
+			"compressionCodec": "gzip"
+		},
+		"schema": []
+	}
+}
