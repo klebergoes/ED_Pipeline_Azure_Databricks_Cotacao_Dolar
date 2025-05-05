@@ -293,9 +293,10 @@
 					"recurrence": {
 						"frequency": "Day",
 						"interval": 1,
-						"startTime": "2025-05-03T18:30:00",
-						"endTime": "2025-05-06T22:42:00",
-						"timeZone": "E. South America Standard Time"
+						"startTime": "2025-05-03T19:03:00",
+						"endTime": "2025-05-07T22:42:00",
+						"timeZone": "E. South America Standard Time",
+						"schedule": {}
 					}
 				}
 			},
