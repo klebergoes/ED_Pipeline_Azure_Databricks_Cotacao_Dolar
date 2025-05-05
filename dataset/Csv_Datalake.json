@@ -15,7 +15,7 @@
 				"type": "AzureBlobFSLocation",
 				"fileName": "Cotacao_Dolar",
 				"folderPath": "Bronze",
-				"fileSystem": "formula1"
+				"fileSystem": "cotacao-dolar"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
