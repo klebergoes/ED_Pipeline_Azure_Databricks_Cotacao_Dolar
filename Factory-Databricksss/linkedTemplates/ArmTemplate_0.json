@@ -83,35 +83,6 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/Csv_Api')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "HttpServer",
-					"type": "LinkedServiceReference"
-				},
-				"folder": {
-					"name": "Dados_Externos"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "HttpServerLocation"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/HttpServer')]"
-			]
-		},
-		{
 			"name": "[concat(parameters('factoryName'), '/Csv_Datalake')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -216,7 +187,7 @@
 			"properties": {
 				"activities": [
 					{
-						"name": "Ingestao_Api",
+						"name": "Camada_Bronze",
 						"type": "Copy",
 						"dependsOn": [],
 						"policy": {
@@ -231,8 +202,9 @@
 							"source": {
 								"type": "DelimitedTextSource",
 								"storeSettings": {
-									"type": "HttpReadSettings",
-									"requestMethod": "GET"
+									"type": "AzureBlobFSReadSettings",
+									"recursive": true,
+									"enablePartitionDiscovery": false
 								},
 								"formatSettings": {
 									"type": "DelimitedTextReadSettings"
@@ -259,7 +231,7 @@
 						},
 						"inputs": [
 							{
-								"referenceName": "Csv_Api",
+								"referenceName": "Csv_Datalake",
 								"type": "DatasetReference",
 								"parameters": {}
 							}
@@ -271,6 +243,60 @@
 								"parameters": {}
 							}
 						]
+					},
+					{
+						"name": "Camada_Silver",
+						"type": "DatabricksNotebook",
+						"dependsOn": [
+							{
+								"activity": "Camada_Bronze",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"notebookPath": "/Users/kleber-goes@hotmail.com/Pipeline-Cotacao-Dolar-Azure_Databricks/Arquitetura_Medalhao/1. Camada Silver"
+						},
+						"linkedServiceName": {
+							"referenceName": "AzureDatabricksConexao",
+							"type": "LinkedServiceReference"
+						}
+					},
+					{
+						"name": "Camada_Gold",
+						"type": "DatabricksNotebook",
+						"dependsOn": [
+							{
+								"activity": "Camada_Silver",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"notebookPath": "/Users/kleber-goes@hotmail.com/Pipeline-Cotacao-Dolar-Azure_Databricks/Arquitetura_Medalhao/2. Camada Gold"
+						},
+						"linkedServiceName": {
+							"referenceName": "AzureDatabricksConexao",
+							"type": "LinkedServiceReference"
+						}
 					}
 				],
 				"policy": {
@@ -282,8 +308,9 @@
 				"annotations": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/datasets/Csv_Api')]",
-				"[concat(variables('factoryId'), '/datasets/Parquet_Api')]"
+				"[concat(variables('factoryId'), '/datasets/Parquet_Api')]",
+				"[concat(variables('factoryId'), '/datasets/Csv_Datalake')]",
+				"[concat(variables('factoryId'), '/linkedServices/AzureDatabricksConexao')]"
 			]
 		},
 		{
