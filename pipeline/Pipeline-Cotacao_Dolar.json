@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Ingestao_Api",
+				"name": "Camada_Bronze",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -34,28 +34,54 @@
 							"type": "ParquetWriteSettings"
 						}
 					},
-					"enableStaging": false,
-					"translator": {
-						"type": "TabularTranslator",
-						"typeConversion": true,
-						"typeConversionSettings": {
-							"allowDataTruncation": true,
-							"treatBooleanAsNumber": false
-						}
-					}
+					"enableStaging": false
 				},
-				"inputs": [
-					{
-						"referenceName": "Csv_Api",
-						"type": "DatasetReference"
-					}
-				],
 				"outputs": [
 					{
 						"referenceName": "Parquet_Api",
 						"type": "DatasetReference"
 					}
 				]
+			},
+			{
+				"name": "Camada_Silver",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/kleber-goes@hotmail.com/Pipeline-Cotacao-Dolar-Azure_Databricks/Arquitetura_Medalhao/1. Camada Silver"
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureDatabricksConexao",
+					"type": "LinkedServiceReference"
+				}
+			},
+			{
+				"name": "Camada_Gold",
+				"type": "DatabricksNotebook",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"notebookPath": "/Users/kleber-goes@hotmail.com/Pipeline-Cotacao-Dolar-Azure_Databricks/Arquitetura_Medalhao/2. Camada Gold"
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureDatabricksConexao",
+					"type": "LinkedServiceReference"
+				}
 			}
 		],
 		"folder": {
