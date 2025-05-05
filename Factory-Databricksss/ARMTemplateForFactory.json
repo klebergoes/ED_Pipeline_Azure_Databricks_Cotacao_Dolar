@@ -273,12 +273,12 @@
 			"dependsOn": []
 		},
 		{
-			"name": "[concat(parameters('factoryName'), '/triggerFormula')]",
+			"name": "[concat(parameters('factoryName'), '/trigger_cotacao_dolar')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"annotations": [],
-				"runtimeState": "Stopped",
+				"runtimeState": "Started",
 				"pipelines": [
 					{
 						"pipelineReference": {
@@ -293,8 +293,8 @@
 					"recurrence": {
 						"frequency": "Day",
 						"interval": 1,
-						"startTime": "2025-05-03T19:51:00",
-						"endTime": "2025-05-04T22:42:00",
+						"startTime": "2025-05-03T18:20:00",
+						"endTime": "2025-05-06T22:42:00",
 						"timeZone": "E. South America Standard Time"
 					}
 				}
