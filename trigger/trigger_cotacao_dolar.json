@@ -2,7 +2,7 @@
 	"name": "trigger_cotacao_dolar",
 	"properties": {
 		"annotations": [],
-		"runtimeState": "Stopped",
+		"runtimeState": "Started",
 		"pipelines": [
 			{
 				"pipelineReference": {
@@ -16,8 +16,7 @@
 			"recurrence": {
 				"frequency": "Day",
 				"interval": 1,
-				"startTime": "2025-05-03T19:03:00",
-				"endTime": "2025-05-07T22:42:00",
+				"startTime": "2025-05-03T14:35:00",
 				"timeZone": "E. South America Standard Time"
 			}
 		}
