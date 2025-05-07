@@ -20,8 +20,8 @@ Para atender a esse objetivo, será adotada uma arquitetura de dados moderna bas
 
 ## Tecnologias Utilizadas
 
--   Linguagem: Python;
--   API: PySpark;
+-   Linguagem: Python.
+-   API: PySpark.
 -   Ferramentas: Azure Data Factory, Azure Datalake Storage, Databricks.
 
 
