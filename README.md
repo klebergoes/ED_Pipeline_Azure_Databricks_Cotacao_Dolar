@@ -64,35 +64,35 @@ Para atender a esse objetivo, será adotada uma arquitetura de dados moderna bas
 
 *Imagem arquitetura Medalhão*
 
-- 1.0. Ingestão de dados -> Camada Bronze
-    - 1.1. Serviço Azure Data Factory
-        - 1.1.1. Componentes:
-            - 1.1.1.1. Trigger: Inicia chamada a API as 0:00
-            - 1.1.1.2. Linked Service:
+- Ingestão de dados -> Camada Bronze
+    - Serviço Azure Data Factory
+        - Componentes:
+            - Trigger: Inicia chamada a API as 0:00
+            - 1Linked Service:
                 - Origem:  Coneta à API (HttpServer)
                 - Destino: Coneta ao Azure Data Lake Storage Gen2
-            - 1.1.1.3. Dataset:
+            - Dataset:
                 - Csv_Api: define a origem (formato CSV da API)
                 - Parquet_Datalake: define o destino (formato Parquet no Data Lake)
-            - 1.1.1.4. Activity - Copy Data: Entre os datasets Csv_Api para Parquet_Datalake
-- 2.0. Transformação - Camada Bronze -> Camada Silver
-    - 2.1. Serviço Databricks
-        - 2.1.1. Componentes:
-            - 2.1.1.1. Notebook: Script PySpark para transformar os dados da Camada Bronze para Silver
-            - 2.1.1.2. Cluster: Configuração (ex: 16 GB RAM, 4 Cores)
-    - 2.2. Serviço Azure Data Factory
-        - 2.2.1. Componentes:
-            - 2.2.1.1. Linked Service: Conecta o ADF ao Databricks
-            - 2.2.1.2. Activity - Notebook: Executa o notebook “1. Camada Silver”
-- 3.0. Modelagem Analítica - Camada Silver → Camada Gold
-    - 3.1. Serviço: Databricks
-        - 3.1.1. Componentes:
-            - 3.1.1.1. Notebook: Script PySpark para transformar os dados da Camada Silver para Gold (agregações)
-            - 3.1.1.2. Cluster: Cluster: Configuração (ex: 16 GB RAM, 4 Cores)
-    - 3.2. Serviço Azure Data Factory
-        - 3.2.1. Componentes:
-            - 3.2.1.1. Linked Service: Conecta o Azure Data Factory ao Databricks
-            - 3.2.1.2. Activity - Notebook: Executa o notebook “2. Camada Gold”
+            - 1Activity - Copy Data: Entre os datasets Csv_Api para Parquet_Datalake
+- Transformação - Camada Bronze -> Camada Silver
+    - Serviço Databricks
+        - Componentes:
+            - Notebook: Script PySpark para transformar os dados da Camada Bronze para Silver
+            - Cluster: Configuração (ex: 16 GB RAM, 4 Cores)
+    - Serviço Azure Data Factory
+        - Componentes:
+            - Linked Service: Conecta o ADF ao Databricks
+            - Activity - Notebook: Executa o notebook “1. Camada Silver”
+- Modelagem Analítica - Camada Silver → Camada Gold
+    - Serviço: Databricks
+        - Componentes:
+            - Notebook: Script PySpark para transformar os dados da Camada Silver para Gold (agregações)
+            - Cluster: Cluster: Configuração (ex: 16 GB RAM, 4 Cores)
+    - Serviço Azure Data Factory
+        - Componentes:
+            - Linked Service: Conecta o Azure Data Factory ao Databricks
+            - Activity - Notebook: Executa o notebook “2. Camada Gold”
 
 ### Fluxograma Azure Data Factory
 
@@ -101,3 +101,29 @@ Para atender a esse objetivo, será adotada uma arquitetura de dados moderna bas
 
 ## Como Executar
 
+Para executar o projeto disponível no GitHub, que contém arquivos JSON do Azure Data Factory e notebooks do Databricks, siga as etapas abaixo para importar, configurar e executar ambos os componentes em seus respectivos serviços:
+
+- Azure Data Factory (Importar o projeto JSON):
+    - Acesse o Azure Data Factory Studio.
+    - Vá até o menu Manage > Git configuration.
+    - Configure a integração com o repositório Git onde estão os arquivos do projeto.
+    - Após a configuração, você poderá navegar pelos arquivos diretamente no painel Factory Resources.
+
+- Databricks (Importar notebooks):
+    - Acesse o menu lateral no Databricks e clique em Repos.
+    - Clique em Add Repo.
+    - Preencha os campos da seguinte forma:
+        - Git repository URL: https://github.com/klebergoes/ED_Pipeline_Azure_Databricks_Cotacao_Dolar.git
+        - Git provider: GitHub
+        - Repository name: ED_Pipeline_Azure_Databricks_Cotacao_Dolar
+    - Após a importação, os notebooks estarão disponíveis no seu workspace para execução.
+    
+- Integração: Azure Data Factory x Databricks
+    - Certifique-se de que o Linked Service do ADF para Databricks está configurado.
+    - Confirme o nome do notebook e o caminho.
+    - Teste a execução do pipeline no ADF.
+ 
+- Dica final: Teste por partes
+    - Rode o notebook isoladamente primeiro no Databricks.
+    - Depois execute os pipelines no ADF.
+    - Isso facilita a depuração de erros.
