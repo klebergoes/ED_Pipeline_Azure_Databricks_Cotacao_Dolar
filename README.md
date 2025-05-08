@@ -60,4 +60,9 @@ Para atender a esse objetivo, será adotada uma arquitetura de dados moderna bas
 
 ## Metodologia
 
-1. Ingestão de dados:
+- 1. Ingestão de dados
+    - 1.1. Serviço Azure Data Factory
+        - 1.1.1. Componentes:
+            - 1.1.1.1. Trigger: Inicia chamada a API as 0:00
+            - 1.1.1.2. Linked Service: Coneta com a API (origem) e Datalake (destino) de dados (Azure Data Lake, SQL Server, APIs, etc).
+- 2.0. 
