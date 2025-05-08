@@ -19,8 +19,6 @@ Uma renomada empresa com sede nos Estados Unidos possui filiais no Brasil, Méxi
 
 Diariamente, a área de negócios depende desses dados para gerar relatórios financeiros consolidados e, atualmente, esse processo é realizado de forma manual. Para automatizar essa operação, será desenvolvido um pipeline de dados que consome cotações cambiais por meio da API do Banco Central, trata e padroniza as informações, entregando-as em um formato pronto para consumo.
 
-Para atender a esse objetivo, será adotada uma arquitetura de dados moderna baseada em camadas (Bronze, Silver e Gold), utilizando serviços em nuvem da Microsoft Azure. A solução garantirá escalabilidade, governança e eficiência em todo o fluxo de dados.
-
 
 ## Tecnologias Utilizadas
 
@@ -60,11 +58,40 @@ Para atender a esse objetivo, será adotada uma arquitetura de dados moderna bas
 
 ## Metodologia Pipeline
 
+Para atender a esse objetivo, será adotada uma arquitetura de dados moderna baseada em camadas (Bronze, Silver e Gold), utilizando serviços em nuvem da Microsoft Azure. A solução contará com o Databricks como principal motor de processamento e transformação de dados, garantindo escalabilidade, governança e eficiência em todo o fluxo de dados:
+
+*Imagem arquitetura Medalhão*
+
 - 1.0. Ingestão de dados -> Camada Bronze
     - 1.1. Serviço Azure Data Factory
         - 1.1.1. Componentes:
             - 1.1.1.1. Trigger: Inicia chamada a API as 0:00
-            - 1.1.1.2. Linked Service: Coneta a API (origem - HttpServer) ao Datalake (destino - Azure Data Lake Storage Gen2)
-            - 1.1.1.3. Dataset: Especifica a localização (de httpServer para datalake) e formato do dado (de csv para parquet)
-            - 1.1.1.4. Activity: Copiar Dados entre os datasets Csv_Api para Parquet_Datalake
-- 2.0. Camada Bronze -> Camada Silver
+            - 1.1.1.2. Linked Service:
+                - Origem:  Coneta à API (HttpServer)
+                - Destino: Coneta ao Azure Data Lake Storage Gen2
+            - 1.1.1.3. Dataset:
+                - Csv_Api: define a origem (formato CSV da API)
+                - Parquet_Datalake: define o destino (formato Parquet no Data Lake)
+            - 1.1.1.4. Activity - Copy Data: Entre os datasets Csv_Api para Parquet_Datalake
+- 2.0. Transformação - Camada Bronze -> Camada Silver
+    - 2.1. Serviço Databricks
+        - 2.1.1. Componentes:
+            - 2.1.1.1. Notebook: Script PySpark para transformar os dados da Camada Bronze para Silver
+            - 2.1.1.2. Cluster: Configuração (ex: 16 GB RAM, 4 Cores)
+    - 2.2. Serviço Azure Data Factory
+        - 2.2.1. Componentes:
+            - 2.2.1.1. Linked Service: Conecta o ADF ao Databricks
+            - 2.2.1.2. Activity - Notebook: Executa o notebook “1. Camada Silver”
+- 3.0. Modelagem Analítica - Camada Silver → Camada Gold
+    - 3.1. Serviço: Databricks
+        - 3.1.1. Componentes:
+            - 3.1.1.1. Notebook: Script PySpark para transformar os dados da Camada Silver para Gold (agregações)
+            - 3.1.1.2. Cluster: Cluster: Configuração (ex: 16 GB RAM, 4 Cores)
+    - 3.2. Serviço Azure Data Factory
+        - 3.2.1. Componentes:
+            - 3.2.1.1. Linked Service: Conecta o Azure Data Factory ao Databricks
+            - 3.2.1.2. Activity - Notebook: Executa o notebook “2. Camada Gold”
+
+### Fluxograma Azure Data Factory
+
+*Imagem Pipeline Data Factory*
