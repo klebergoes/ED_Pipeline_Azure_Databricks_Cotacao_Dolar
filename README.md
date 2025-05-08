@@ -51,7 +51,7 @@ A área de negócios depende diariamente dessas cotações para gerar relatório
 ## Conjunto de Dados
 
 -   Fonte: API PTAX (Ferramenta oficial do Banco Central do Brasil).
--   Endpoint: "https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarPeriodo(dataInicial=@dataInicial,dataFinalCotacao=@dataFinalCotacao)?%40dataInicial='05-07-2025'&%40dataFinalCotacao='05-07-2025'&%24format=text%2Fcsv".
+-   Endpoint: "https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarPeriodo(dataInicial=@dataInicial,dataFinalCotacao=@dataFinalCotacao)?%40dataInicial='01-01-2020'&%40dataFinalCotacao='12-31-2030'&%24format=text%2Fcsv".
 -   Retorno: Cotação de Compra e a Cotação de Venda da moeda Dólar contra a unidade monetária corrente para o período informado.
 -   Formato: CSV via API.
 -   Colunas:
