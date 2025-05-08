@@ -85,7 +85,7 @@ A área de negócios depende diariamente dessas cotações para gerar relatório
 
 ## Metodologia
 
-Para atender a esse objetivo, será adotada uma arquitetura de dados moderna baseada em camadas, utilizando serviços em nuvem da Microsoft Azure:
+Para atender a esse objetivo, será adotada uma arquitetura de dados moderna baseada em camadas (Medalhão), utilizando serviços em nuvem da Microsoft Azure:
 
 - **Bronze (Raw / Dados Brutos):** Dados crus, extraídos diretamente da fonte.
 
@@ -114,6 +114,8 @@ Além disso, será utilizado o Delta Lake, uma tecnologia de armazenamento otimi
 - **Compatibilidade com Streaming e Batch:** Você pode usar a mesma tabela para consumir dados em tempo real (streaming) e processar dados em lote (batch), facilitando a escalabilidade e manutenção do pipeline.
 
 - **Esquema Evolutivo (Schema Evolution):** Suporta mudanças no esquema dos dados (como adicionar novas colunas) sem quebrar o pipeline — ideal para projetos que evoluem com o tempo.
+
+#### Arquitetura:
 
 ![Image](https://github.com/user-attachments/assets/06c1c884-d9c9-4548-b0eb-d4dc841a9c31)
 
