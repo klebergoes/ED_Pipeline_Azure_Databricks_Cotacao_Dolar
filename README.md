@@ -14,6 +14,8 @@
 
 [Como Executar](#Como-Executar)
 
+[Resultados](#Resultados)
+
 
 ## Desafio / Problema
 
@@ -75,6 +77,7 @@ Para atender a esse objetivo, será adotada uma arquitetura de dados moderna bas
                 - Csv_Api: define a origem (formato CSV da API)
                 - Parquet_Datalake: define o destino (formato Parquet no Data Lake)
             - 1Activity - Copy Data: Entre os datasets Csv_Api para Parquet_Datalake
+              
 - Transformação - Camada Bronze -> Camada Silver
     - Serviço Databricks
         - Componentes:
@@ -84,6 +87,7 @@ Para atender a esse objetivo, será adotada uma arquitetura de dados moderna bas
         - Componentes:
             - Linked Service: Conecta o ADF ao Databricks
             - Activity - Notebook: Executa o notebook “1. Camada Silver”
+              
 - Modelagem Analítica - Camada Silver → Camada Gold
     - Serviço: Databricks
         - Componentes:
@@ -127,3 +131,33 @@ Para executar o projeto disponível no GitHub, que contém arquivos JSON do Azur
     - Rode o notebook isoladamente primeiro no Databricks.
     - Depois execute os pipelines no ADF.
     - Isso facilita a depuração de erros.
+
+
+## Resultados
+
+- Redução de Erros Manuais:
+    - Elimina tarefas repetitivas e sujeitas a falha humana.
+    - Garante consistência na execução de processos.
+      
+- Escalabilidade na nuvem:
+    - Tarefas que levavam horas podem ser executadas em minutos ou segundos.
+    - Permite execução em horários não comerciais (ex: agendamentos noturnos).
+
+- Aumento de Produtividade:
+    -  Libera os profissionais para se concentrarem em tarefas analíticas e estratégicas.
+    -  Processos que antes exigiam esforço humano passam a rodar automaticamente.
+      
+-  Melhor Monitoramento e Controle:
+    - Registros de execução (logs), alertas e dashboards facilitam auditoria e rastreabilidade.
+    - Possibilidade de identificar gargalos e oportunidades de melhoria.
+ 
+-  Escalabilidade:
+    -  O mesmo fluxo automatizado pode ser replicado para múltiplos arquivos, bases, clientes ou regiões com pouca ou nenhuma alteração.
+ 
+-  Redução de Custos Operacionais:
+    -  Menor dependência de trabalho manual e tempo gasto com retrabalho.
+    -  Uso inteligente de recursos computacionais (como clusters sob demanda, por exemplo no Databricks).
+ 
+-  Agilidade na Tomada de Decisão:
+    -  Dados tratados e atualizados automaticamente alimentam dashboards e relatórios em tempo real.
+    -  Menos tempo entre o dado bruto e a informação útil.
