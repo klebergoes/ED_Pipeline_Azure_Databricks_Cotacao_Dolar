@@ -12,6 +12,8 @@
 
 [Metodologia Pipeline](#Metodologia-Pipeline)
 
+[Como Executar](#Como-Executar)
+
 
 ## Desafio / Problema
 
@@ -95,3 +97,7 @@ Para atender a esse objetivo, será adotada uma arquitetura de dados moderna bas
 ### Fluxograma Azure Data Factory
 
 *Imagem Pipeline Data Factory*
+
+
+## Como Executar
+
