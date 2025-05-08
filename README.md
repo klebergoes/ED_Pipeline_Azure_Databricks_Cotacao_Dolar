@@ -18,19 +18,20 @@
 
 [Conclusão](#Conclusão)
 
+[Contato](#Contato)
+
 
 ## Desafio / Problema
 
 Uma renomada empresa com sede nos Estados Unidos possui filiais no Brasil. Essas unidades realizam compras e vendas em sua respectiva moeda local (BRL). Para consolidar as informações financeiras, todas as transações precisam ser convertidas para dólares americanos (USD), garantindo uma visão unificada de receita, custo e lucro por país.
 
-Diariamente, a área de negócios depende desses dados para gerar relatórios financeiros consolidados. Atualmente, esse processo é realizado manualmente. Para automatizar essa operação, será desenvolvido um pipeline de dados que consome cotações cambiais por meio da API do Banco Central, trata e padroniza as informações, entregando-as em um formato pronto para consumo.
+A área de negócios depende diariamente dessas cotações para gerar relatórios financeiros consolidados. No entanto, esse processo ainda é realizado de forma manual, sujeito a erros e atrasos. Para automatizar essa operação, será desenvolvido um pipeline de dados que consome cotações cambiais por meio da API do Banco Central, trata e padroniza as informações, entregando-as em um formato pronto para consumo.
 
 
 ## Tecnologias Utilizadas
 
--   Linguagem: Python.
--   API: PySpark.
--   Ferramentas: Azure Data Factory, Azure Datalake Storage, Databricks.
+-   Linguagem: Python (com uso de PySpark para processamento distribuído).
+-   Serviços e Ferramentas: Azure Data Factory, Azure Data Lake Storage Gen2 e Databricks.
 
 
 ## Estrutura do Projeto
@@ -38,7 +39,7 @@ Diariamente, a área de negócios depende desses dados para gerar relatórios fi
 -   Arquitetura_Medalhao: Notebooks (.ipynb) com o desenvolvimento das camadas Silver e Gold da arquitetura em camadas (Medalhão).
 -   Factory-Databricks: Arquivos de configuração (JSON) e templates usados em processos de automação e implantação de recursos no Azure, especialmente para Azure Data Factory e Azure Databricks.
 -   Dataset: Arquivos de configuração (JSON) que definem a estrutura dos dados e o local de origem e destino para operações de leitura e gravação.
--   Factory: Arquivo de configuração (JSON) relacionados a autenticação e identidade de recursos.
+-   Factory: Arquivo de configuração (JSON) relacionado a autenticação e identidade de recursos.
 -   LinkedService: Arquivos de configuração (JSON) para conectar o Data Factory a fontes de dados externas ou destinos, permitindo realizar operações de movimentação de dados.
 -   Pipeline: Arquivo de configuração (JSON) que descrevem o pipeline no Azure Data Factory.
 -   Trigger: Arquivo de configuração (JSON) que descrevem o trigger (gatilho) para o pipeline no Azure Data Factory.
@@ -72,9 +73,9 @@ Para atender a esse objetivo, será adotada uma arquitetura de dados moderna bas
     - Serviço Azure Data Factory
         - Componentes:
             - Trigger: Inicia chamada a API as 0:00
-            - 1Linked Service:
-                - Origem:  Coneta à API (HttpServer)
-                - Destino: Coneta ao Azure Data Lake Storage Gen2
+            - Linked Service:
+                - Origem:  Conecta à API (HttpServer)
+                - Destino: Conecta ao Azure Data Lake Storage Gen2
             - Dataset:
                 - Csv_Api: define a origem (formato CSV da API)
                 - Parquet_Datalake: define o destino (formato Parquet no Data Lake)
@@ -167,4 +168,11 @@ Para executar o projeto disponível no GitHub, que contém arquivos JSON do Azur
 
 ## Conclusão
 
-Este projeto demonstra minha capacidade de construir soluções de dados modernas e automatizadas, utilizando os principais serviços da Microsoft Azure. Com ele, foi possível validar uma arquitetura escalável, governável e eficiente, aplicável a cenários reais de negócio que exigem rapidez, consistência e confiabilidade na entrega de informações.
+Este projeto evidencia minha capacidade de desenvolver pipelines de dados robustos e escaláveis, aplicando as melhores práticas de engenharia de dados na nuvem com Azure. A solução entregue não apenas automatiza um processo crítico, mas também melhora a governança, a eficiência e a qualidade das informações disponíveis para a tomada de decisão empresarial.
+
+
+### Contato
+
+-   Autor: Kleber Goes da Silva
+-	E-mail: kleber-goes@hotmail.com
+-	LinkedIn: in/kleber-goes-02091990
