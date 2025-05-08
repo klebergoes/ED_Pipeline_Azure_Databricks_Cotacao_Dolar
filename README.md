@@ -81,25 +81,25 @@ Para atender a esse objetivo, será adotada uma arquitetura de dados moderna bas
                 - **Parquet_Datalake:** define o destino (formato Parquet no Data Lake)
             - **Activity - Copy Data:** Entre os datasets Csv_Api para Parquet_Datalake
               
-- Transformação - Camada Bronze -> Camada Silver
-    - Serviço Databricks
-        - Componentes:
-            - Notebook: Script PySpark para transformar os dados da Camada Bronze para Silver
-            - Cluster: Configuração (ex: 16 GB RAM, 4 Cores)
-    - Serviço Azure Data Factory
-        - Componentes:
-            - Linked Service: Conecta o ADF ao Databricks
-            - Activity - Notebook: Executa o notebook “1. Camada Silver”
+- **Transformação - Camada Bronze -> Camada Silver**
+    - **Serviço Databricks**
+        - **Componentes:**
+            - **Notebook:** Script PySpark para transformar os dados da Camada Bronze para Silver
+            - **Cluster:** Configuração (ex: 16 GB RAM, 4 Cores)
+    - **Serviço Azure Data Factory**
+        - **Componentes:**
+            - **Linked Service:** Conecta o ADF ao Databricks
+            - **Activity - Notebook:** Executa o notebook “1. Camada Silver”
               
-- Modelagem Analítica - Camada Silver → Camada Gold
-    - Serviço: Databricks
-        - Componentes:
-            - Notebook: Script PySpark para transformar os dados da Camada Silver para Gold
-            - Cluster: Cluster: Configuração (ex: 16 GB RAM, 4 Cores)
-    - Serviço Azure Data Factory
-        - Componentes:
-            - Linked Service: Conecta o Azure Data Factory ao Databricks
-            - Activity - Notebook: Executa o notebook “2. Camada Gold”
+- **Modelagem Analítica - Camada Silver → Camada Gold**
+    - **Serviço: Databricks**
+        - **Componentes:**
+            - **Notebook:** Script PySpark para transformar os dados da Camada Silver para Gold
+            - **Cluster:** Cluster: Configuração (ex: 16 GB RAM, 4 Cores)
+    - **Serviço Azure Data Factory**
+        - **Componentes:**
+            - **Linked Service:** Conecta o Azure Data Factory ao Databricks
+            - **Activity - Notebook:** Executa o notebook “2. Camada Gold”
 
 ### Fluxograma Azure Data Factory
 
@@ -110,7 +110,7 @@ Para atender a esse objetivo, será adotada uma arquitetura de dados moderna bas
 
 Para executar o projeto disponível no GitHub, que contém arquivos JSON do Azure Data Factory e notebooks do Databricks, siga as etapas abaixo para importar, configurar e executar ambos os componentes em seus respectivos serviços:
 
-- Azure Data Factory (Importar o projeto JSON):
+- **Azure Data Factory (Importar o projeto JSON):**
     - Acesse o Azure Data Factory Studio.
     - Vá até o menu Manage > Git configuration.
     - Preencha os campos da seguinte forma:
@@ -119,7 +119,7 @@ Para executar o projeto disponível no GitHub, que contém arquivos JSON do Azur
         - Nome do repositório: ED_Pipeline_Azure_Databricks_Cotacao_Dolar
     - Após a configuração, você poderá navegar pelos arquivos diretamente no painel Factory Resources.
 
-- Databricks (Importar notebooks):
+- **Databricks (Importar notebooks):**
     - Acesse o menu lateral no Databricks e clique em Repos.
     - Clique em Add Repo.
     - Preencha os campos da seguinte forma:
@@ -128,12 +128,12 @@ Para executar o projeto disponível no GitHub, que contém arquivos JSON do Azur
         - Repository name: ED_Pipeline_Azure_Databricks_Cotacao_Dolar
     - Após a importação, os notebooks estarão disponíveis no seu workspace para execução.
     
-- Integração: Azure Data Factory x Databricks
+- **Integração: Azure Data Factory x Databricks**
     - Certifique-se de que o Linked Service do ADF para Databricks está configurado.
     - Confirme o nome do notebook e o caminho.
     - Teste a execução do pipeline no ADF.
  
-- Dica final: Teste por partes
+- **Dica final: Teste por partes**
     - Rode o notebook isoladamente primeiro no Databricks.
     - Depois execute os pipelines no ADF.
     - Isso facilita a depuração de erros.
@@ -141,30 +141,30 @@ Para executar o projeto disponível no GitHub, que contém arquivos JSON do Azur
 
 ## Resultados
 
-- Redução de Erros Manuais:
+- **Redução de Erros Manuais:**
     - Elimina tarefas repetitivas e sujeitas a falha humana.
     - Garante consistência na execução de processos.
       
-- Escalabilidade na nuvem:
+- **Escalabilidade na nuvem:**
     - Tarefas que levavam horas podem ser executadas em minutos ou segundos.
     - Permite execução em horários não comerciais (ex: agendamentos noturnos).
 
-- Aumento de Produtividade:
+- **Aumento de Produtividade:**
     -  Libera os profissionais para se concentrarem em tarefas analíticas e estratégicas.
     -  Processos que antes exigiam esforço humano passam a rodar automaticamente.
       
--  Melhor Monitoramento e Controle:
+-  **Melhor Monitoramento e Controle:**
     - Registros de execução (logs), alertas e dashboards facilitam auditoria e rastreabilidade.
     - Possibilidade de identificar gargalos e oportunidades de melhoria.
  
--  Escalabilidade:
+-  **Escalabilidade:**
     -  O mesmo fluxo automatizado pode ser replicado para múltiplos arquivos, bases, clientes ou regiões com pouca ou nenhuma alteração.
  
--  Redução de Custos Operacionais:
+-  **Redução de Custos Operacionais:**
     -  Menor dependência de trabalho manual e tempo gasto com retrabalho.
     -  Uso inteligente de recursos computacionais (como clusters sob demanda, por exemplo no Databricks).
  
--  Agilidade na Tomada de Decisão:
+-  **Agilidade na Tomada de Decisão:**
     -  Dados tratados e atualizados automaticamente alimentam dashboards e relatórios em tempo real.
     -  Menos tempo entre o dado bruto e a informação útil.
 
@@ -176,6 +176,6 @@ Este projeto evidencia minha capacidade de desenvolver pipelines de dados robust
 
 ## Contato
 
-- Autor: Kleber Goes da Silva
-- E-mail: kleber-goes@hotmail.com
-- LinkedIn: in/kleber-goes-02091990
+- **Autor:** Kleber Goes da Silva
+- **E-mail:** kleber-goes@hotmail.com
+- **LinkedIn:** in/kleber-goes-02091990
