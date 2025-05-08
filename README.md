@@ -10,7 +10,7 @@
 
 [Conjunto de Dados](#Conjunto-de-Dados)
 
-[Metodologia Pipeline](#Metodologia-Pipeline)
+[Metodologia](#Metodologia)
 
 [Como Executar](#Como-Executar)
 
@@ -83,7 +83,7 @@ A área de negócios depende diariamente dessas cotações para gerar relatório
         -   **Tipo de Dado:** texto.
 
 
-## Metodologia Pipeline
+## Metodologia
 
 Para atender a esse objetivo, será adotada uma arquitetura de dados moderna baseada em camadas Bronze (Raw / Dados Brutos), Silver (Dados Limpos / Estruturados) e Gold (Dados Agregados / Prontos para Consumo), utilizando serviços em nuvem da Microsoft Azure. A solução contará com o Databricks como principal motor de processamento e transformação de dados, garantindo escalabilidade, governança e eficiência em todo o fluxo de dados:
 
