@@ -1,5 +1,6 @@
 {
 	"name": "HttpServer",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
 	"properties": {
 		"annotations": [],
 		"type": "HttpServer",

@@ -115,6 +115,8 @@
 		"folder": {
 			"name": "Pipeline_Cotacao_Dolar"
 		},
-		"annotations": []
-	}
+		"annotations": [],
+		"lastPublishTime": "2025-05-05T21:05:43Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
 }
