@@ -16,6 +16,8 @@
 
 [Resultados](#Resultados)
 
+[Conclusão](#Conclusão)
+
 
 ## Desafio / Problema
 
@@ -161,3 +163,7 @@ Para executar o projeto disponível no GitHub, que contém arquivos JSON do Azur
 -  Agilidade na Tomada de Decisão:
     -  Dados tratados e atualizados automaticamente alimentam dashboards e relatórios em tempo real.
     -  Menos tempo entre o dado bruto e a informação útil.
+
+
+## Conclusão
+
