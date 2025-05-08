@@ -10,7 +10,7 @@
 
 [Conjunto de Dados](#Conjunto-de-Dados)
 
-[Metodologia](#Metodologia)
+[Metodologia](#Metodologia-Pipeline)
 
 
 ## Desafio / Problema
@@ -58,7 +58,7 @@ Para atender a esse objetivo, será adotada uma arquitetura de dados moderna bas
         -   Tipo de Dado: texto.
 
 
-## Metodologia - Pipeline
+## Metodologia Pipeline
 
 - 1.0. Ingestão de dados -> Camada Bronze
     - 1.1. Serviço Azure Data Factory
