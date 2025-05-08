@@ -85,7 +85,35 @@ A área de negócios depende diariamente dessas cotações para gerar relatório
 
 ## Metodologia
 
-Para atender a esse objetivo, será adotada uma arquitetura de dados moderna baseada em camadas Bronze (Raw / Dados Brutos), Silver (Dados Limpos / Estruturados) e Gold (Dados Agregados / Prontos para Consumo), utilizando serviços em nuvem da Microsoft Azure. A solução contará com o Databricks como principal motor de processamento e transformação de dados, garantindo escalabilidade, governança e eficiência em todo o fluxo de dados. Além disso, será utilizado o Delta Lake, uma tecnologia de armazenamento otimizada que traz benefícios como transações ACID, controle de versionamento (time travel), melhor desempenho de leitura e escrita, e suporte a operações de atualização (MERGE/UPDATE/DELETE) — garantindo maior confiabilidade, performance e flexibilidade na manipulação dos dados ao longo do pipeline:
+Para atender a esse objetivo, será adotada uma arquitetura de dados moderna baseada em camadas, utilizando serviços em nuvem da Microsoft Azure:
+
+- Bronze (Raw / Dados Brutos): Dados crus, extraídos diretamente da fonte.
+
+- Silver (Dados Limpos / Estruturados): Os dados estão prontos para uso analítico mais direto, mas ainda não agregados.
+
+- Gold (Dados Agregados / Prontos para Consumo): Dados agregados, modelados e otimizados para relatórios. Aqui se aplicam regras de negócio.
+  
+
+A solução contará com o Databricks como motor de processamento e transformação de dados, o que garante:
+
+- Escalabilidade: Permite processar grandes volumes de dados de forma distribuída e paralela.
+  
+- Governança: Registra logs de transações e permite versionamento de dados (time travel), essenciais para auditoria e rastreabilidade.
+  
+
+Além disso, será utilizado o Delta Lake, uma tecnologia de armazenamento otimizada que traz benefícios como:
+
+- Transações ACID: Garante que os dados fiquem consistentes e íntegros, mesmo que ocorra uma falha no meio da escrita. Isso evita arquivos corrompidos, leituras incompletas ou dados duplicados.
+
+- Time Travel (Viagem no Tempo): Permite acessar versões anteriores da tabela. Ideal para auditorias, comparação histórica de dados ou recuperação de versões anteriores em caso de erro.
+
+- Atualizações e Upserts simplificados (MERGE, UPDATE, DELETE): O Delta permite editar, atualizar ou mesclar dados diretamente, sem ter que reescrever toda a tabela — algo que era difícil ou custoso com arquivos Parquet puros.
+
+- Leitura Otimizada: Delta usa indexação de arquivos e técnicas como Z-Ordering, que organiza os dados com base em colunas usadas nos filtros (como data), acelerando muito as consultas analíticas.
+
+- Compatibilidade com Streaming e Batch: Você pode usar a mesma tabela para consumir dados em tempo real (streaming) e processar dados em lote (batch), facilitando a escalabilidade e manutenção do pipeline.
+
+- Esquema Evolutivo (Schema Evolution): Suporta mudanças no esquema dos dados (como adicionar novas colunas) sem quebrar o pipeline — ideal para projetos que evoluem com o tempo.
 
 ![Image](https://github.com/user-attachments/assets/06c1c884-d9c9-4548-b0eb-d4dc841a9c31)
 
