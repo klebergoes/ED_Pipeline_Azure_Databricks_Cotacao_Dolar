@@ -153,7 +153,7 @@ Para atender a esse objetivo, será adotada uma arquitetura de dados moderna bas
 
 ![Image](https://github.com/user-attachments/assets/8415dce5-61ef-46cb-9db3-4e18d6bc06fc)
 
-#### Tempo de execução do pipeline:
+#### Tempo de execução de cada camada do pipeline:
 
 ![Image](https://github.com/user-attachments/assets/d97d68b8-678f-4cb9-ab3e-530261475abb)
 
