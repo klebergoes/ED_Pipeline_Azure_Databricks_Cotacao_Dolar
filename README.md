@@ -30,7 +30,7 @@ A área de negócios depende diariamente dessas cotações para gerar relatório
 
 ## Tecnologias Utilizadas
 
--   Linguagem: Python (com uso de PySpark para processamento distribuído).
+-   **Linguagem:** Python (com uso de PySpark para processamento distribuído).
 -   Serviços e Ferramentas: Azure Data Factory, Azure Data Lake Storage Gen2 e Databricks.
 
 
