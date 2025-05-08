@@ -264,7 +264,8 @@
 				"folder": {
 					"name": "Pipeline_Cotacao_Dolar"
 				},
-				"annotations": []
+				"annotations": [],
+				"lastPublishTime": "2025-05-05T21:05:43Z"
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/datasets/Csv_Api')]",
@@ -293,9 +294,8 @@
 					"recurrence": {
 						"frequency": "Day",
 						"interval": 1,
-						"startTime": "2025-05-03T14:35:00",
-						"timeZone": "E. South America Standard Time",
-						"schedule": {}
+						"startTime": "2025-05-02T00:00:00",
+						"timeZone": "E. South America Standard Time"
 					}
 				}
 			},
