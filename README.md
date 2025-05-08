@@ -167,3 +167,4 @@ Para executar o projeto disponível no GitHub, que contém arquivos JSON do Azur
 
 ## Conclusão
 
+Este projeto demonstra minha capacidade de construir soluções de dados modernas e automatizadas, utilizando os principais serviços da Microsoft Azure. Com ele, foi possível validar uma arquitetura escalável, governável e eficiente, aplicável a cenários reais de negócio que exigem rapidez, consistência e confiabilidade na entrega de informações.
