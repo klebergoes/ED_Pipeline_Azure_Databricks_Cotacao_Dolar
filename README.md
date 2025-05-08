@@ -67,9 +67,11 @@ A área de negócios depende diariamente dessas cotações para gerar relatório
 
 Para atender a esse objetivo, será adotada uma arquitetura de dados moderna baseada em camadas (Bronze, Silver e Gold), utilizando serviços em nuvem da Microsoft Azure. A solução contará com o Databricks como principal motor de processamento e transformação de dados, garantindo escalabilidade, governança e eficiência em todo o fluxo de dados:
 
-*Imagem arquitetura Medalhão*
+![Image](https://github.com/user-attachments/assets/06c1c884-d9c9-4548-b0eb-d4dc841a9c31)
 
-- **Ingestão de dados -> Camada Bronze**
+#### Detalhamento Pipeline:
+
+- **Ingestão de dados - API -> Camada Bronze**
     - **Serviço Azure Data Factory**
         - **Componentes:**
             - **Trigger:** Inicia chamada a API as 0:00
@@ -101,9 +103,13 @@ Para atender a esse objetivo, será adotada uma arquitetura de dados moderna bas
             - **Linked Service:** Conecta o Azure Data Factory ao Databricks
             - **Activity - Notebook:** Executa o notebook “2. Camada Gold”
 
-### Fluxograma Azure Data Factory
+#### Fluxograma Azure Data Factory:
 
-*Imagem Pipeline Data Factory*
+![Image](https://github.com/user-attachments/assets/8415dce5-61ef-46cb-9db3-4e18d6bc06fc)
+
+#### Tempo de execução do pipeline:
+
+![Image](https://github.com/user-attachments/assets/d97d68b8-678f-4cb9-ab3e-530261475abb)
 
 
 ## Como Executar
