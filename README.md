@@ -60,11 +60,11 @@ Para atender a esse objetivo, será adotada uma arquitetura de dados moderna bas
 
 ## Metodologia - Pipeline
 
-- 1. Ingestão de dados -> Camada Bronze
+- 1.0. Ingestão de dados -> Camada Bronze
     - 1.1. Serviço Azure Data Factory
         - 1.1.1. Componentes:
             - 1.1.1.1. Trigger: Inicia chamada a API as 0:00
             - 1.1.1.2. Linked Service: Coneta a API (origem - HttpServer) ao Datalake (destino - Azure Data Lake Storage Gen2)
             - 1.1.1.3. Dataset: Especifica a localização (de httpServer para datalake) e formato do dado (de csv para parquet)
             - 1.1.1.4. Activity: Copiar Dados entre os datasets Csv_Api para Parquet_Datalake
-- 2. Camada Bronze -> Camada Silver
+- 2.0. Camada Bronze -> Camada Silver
