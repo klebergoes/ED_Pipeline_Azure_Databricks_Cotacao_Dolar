@@ -8,6 +8,10 @@
 
 [Estrutura do Projeto](#Estrutura-do-Projeto)
 
+[Conjunto de Dados](#Conjunto-de-Dados)
+
+[Metodologia](#Metodologia)
+
 
 ## Desafio / Problema
 
@@ -37,3 +41,23 @@ Para atender a esse objetivo, será adotada uma arquitetura de dados moderna bas
 -   .gitignore: Arquivo que contém o nome do notebook (.ipynb) de configuração do ponto de montagem (para o Databricks acessar o Azure Data Lake Storage Gen2), a ser ignorado durante o processo de versionamento. Por ser confidencial, não é incluído no repositório.
 -   README.md: Documentação do projeto.
 -   Publish_config.json: Arquivo de configuração (JSON) do Databricks com o sistema de versionamento de código.
+
+
+## Conjunto de Dados
+
+-   Fonte: API PTAX (Ferramenta oficial do Banco Central do Brasil).
+-   Endpoint: "https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/CotacaoDolarPeriodo(dataInicial=@dataInicial,dataFinalCotacao=@dataFinalCotacao)?%40dataInicial='05-07-2025'&%40dataFinalCotacao='05-07-2025'&%24format=text%2Fcsv".
+-   Retorno: Cotação de Compra e a Cotação de Venda da moeda Dólar contra a unidade monetária corrente para o período informado.
+-   Formato: CSV via API.
+-   Colunas:
+    -   cotacaoCompra: Cotação de compra do dólar contra a unidade monetária corrente: unidade monetária corrente/dólar americano.
+        -   Tipo de Dado: decimal.
+    -   cotacaoVenda: Cotação de venda do dólar contra a unidade monetária corrente: unidade monetária corrente/dólar americano.
+        -   Tipo de Dado: decimal.
+    -   dataHoraCotacao: Data, hora e minuto das cotações de compra e venda.
+        -   Tipo de Dado: texto.
+
+
+## Metodologia
+
+1. Ingestão de dados:
