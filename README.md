@@ -79,7 +79,7 @@ Para atender a esse objetivo, será adotada uma arquitetura de dados moderna bas
             - Dataset:
                 - Csv_Api: define a origem (formato CSV da API)
                 - Parquet_Datalake: define o destino (formato Parquet no Data Lake)
-            - 1Activity - Copy Data: Entre os datasets Csv_Api para Parquet_Datalake
+            - Activity - Copy Data: Entre os datasets Csv_Api para Parquet_Datalake
               
 - Transformação - Camada Bronze -> Camada Silver
     - Serviço Databricks
