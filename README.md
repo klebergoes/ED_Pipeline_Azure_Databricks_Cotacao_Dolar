@@ -94,7 +94,7 @@ Para atender a esse objetivo, será adotada uma arquitetura de dados moderna bas
 - Modelagem Analítica - Camada Silver → Camada Gold
     - Serviço: Databricks
         - Componentes:
-            - Notebook: Script PySpark para transformar os dados da Camada Silver para Gold (agregações)
+            - Notebook: Script PySpark para transformar os dados da Camada Silver para Gold
             - Cluster: Cluster: Configuração (ex: 16 GB RAM, 4 Cores)
     - Serviço Azure Data Factory
         - Componentes:
