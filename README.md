@@ -178,4 +178,4 @@ Este projeto evidencia minha capacidade de desenvolver pipelines de dados robust
 
 - **Autor:** Kleber Goes da Silva
 - **E-mail:** kleber-goes@hotmail.com
-- **LinkedIn:** [in/kleber-goes-02091990](https://www.linkedin.com/in/kleber-goes-02091990/)
+- **LinkedIn:** https://www.linkedin.com/in/kleber-goes-02091990/
