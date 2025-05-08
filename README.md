@@ -85,7 +85,7 @@ A área de negócios depende diariamente dessas cotações para gerar relatório
 
 ## Metodologia
 
-Para atender a esse objetivo, será adotada uma arquitetura de dados moderna baseada em camadas Bronze (Raw / Dados Brutos), Silver (Dados Limpos / Estruturados) e Gold (Dados Agregados / Prontos para Consumo), utilizando serviços em nuvem da Microsoft Azure. A solução contará com o Databricks como principal motor de processamento e transformação de dados, garantindo escalabilidade, governança e eficiência em todo o fluxo de dados:
+Para atender a esse objetivo, será adotada uma arquitetura de dados moderna baseada em camadas Bronze (Raw / Dados Brutos), Silver (Dados Limpos / Estruturados) e Gold (Dados Agregados / Prontos para Consumo), utilizando serviços em nuvem da Microsoft Azure. A solução contará com o Databricks como principal motor de processamento e transformação de dados, garantindo escalabilidade, governança e eficiência em todo o fluxo de dados. Além disso, será utilizado o Delta Lake, uma tecnologia de armazenamento otimizada que traz benefícios como transações ACID, controle de versionamento (time travel), melhor desempenho de leitura e escrita, e suporte a operações de atualização (MERGE/UPDATE/DELETE) — garantindo maior confiabilidade, performance e flexibilidade na manipulação dos dados ao longo do pipeline:
 
 ![Image](https://github.com/user-attachments/assets/06c1c884-d9c9-4548-b0eb-d4dc841a9c31)
 
