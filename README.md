@@ -113,7 +113,10 @@ Para executar o projeto disponível no GitHub, que contém arquivos JSON do Azur
 - Azure Data Factory (Importar o projeto JSON):
     - Acesse o Azure Data Factory Studio.
     - Vá até o menu Manage > Git configuration.
-    - Configure a integração com o repositório Git onde estão os arquivos do projeto.
+    - Preencha os campos da seguinte forma:
+        - Tipo de repositório: GitHub
+        - Proprietário do repositório do GitHub: klebergoes
+        - Nome do repositório: ED_Pipeline_Azure_Databricks_Cotacao_Dolar
     - Após a configuração, você poderá navegar pelos arquivos diretamente no painel Factory Resources.
 
 - Databricks (Importar notebooks):
