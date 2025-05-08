@@ -85,7 +85,7 @@ A área de negócios depende diariamente dessas cotações para gerar relatório
 
 ## Metodologia Pipeline
 
-Para atender a esse objetivo, será adotada uma arquitetura de dados moderna baseada em camadas (Bronze, Silver e Gold), utilizando serviços em nuvem da Microsoft Azure. A solução contará com o Databricks como principal motor de processamento e transformação de dados, garantindo escalabilidade, governança e eficiência em todo o fluxo de dados:
+Para atender a esse objetivo, será adotada uma arquitetura de dados moderna baseada em camadas Bronze (Raw / Dados Brutos), Silver (Dados Limpos / Estruturados) e Gold (Dados Agregados / Prontos para Consumo), utilizando serviços em nuvem da Microsoft Azure. A solução contará com o Databricks como principal motor de processamento e transformação de dados, garantindo escalabilidade, governança e eficiência em todo o fluxo de dados:
 
 ![Image](https://github.com/user-attachments/assets/06c1c884-d9c9-4548-b0eb-d4dc841a9c31)
 
