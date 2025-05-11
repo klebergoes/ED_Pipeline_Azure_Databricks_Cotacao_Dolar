@@ -23,7 +23,7 @@
 
 ## Desafio / Problema
 
-Uma renomada empresa com sede nos Estados Unidos possui filiais no Brasil. Essas unidades realizam compras e vendas em sua respectiva moeda local (BRL). Para consolidar as informações financeiras, todas as transações precisam ser convertidas para dólares americanos (USD), garantindo uma visão unificada de receita, custo e lucro por país.
+Em uma situação hipotética, uma renomada empresa com sede nos Estados Unidos possui filiais no Brasil. Essas unidades realizam compras e vendas em sua respectiva moeda local (BRL). Para consolidar as informações financeiras, todas as transações precisam ser convertidas para dólares americanos (USD), garantindo uma visão unificada de receita, custo e lucro por país.
 
 A área de negócios depende diariamente dessas cotações para gerar relatórios financeiros consolidados. No entanto, esse processo ainda é realizado de forma manual, sujeito a erros e atrasos. Para automatizar essa operação, será desenvolvido um pipeline de dados que consome cotações cambiais por meio da API do Banco Central, trata e padroniza as informações, entregando-as em um formato pronto para consumo.
 
