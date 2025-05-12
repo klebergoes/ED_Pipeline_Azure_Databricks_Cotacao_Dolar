@@ -117,7 +117,7 @@ Além disso, será utilizado o Delta Lake, uma tecnologia de armazenamento otimi
 
 #### Arquitetura:
 
-![Image](https://github.com/user-attachments/assets/06c1c884-d9c9-4548-b0eb-d4dc841a9c31)
+![Image](https://github.com/user-attachments/assets/fa5e8d77-41c7-4685-b751-a59543c37389)
 
 #### Detalhamento Pipeline:
 
